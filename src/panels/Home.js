@@ -1,30 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
-import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import Button from '@vkontakte/vkui/dist/components/Button/Button';
 import Group from '@vkontakte/vkui/dist/components/Group/Group';
-import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
-import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 
-const Home = ({ id, go, fetchedUser }) => (
+const Home = ({ id, go, fetchedUser}) => (
 	<Panel id={id}>
-		<PanelHeader>Example</PanelHeader>
-		{fetchedUser &&
-		<Group title="User Data Fetched with VK Connect">
-			<Cell
-				before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}
-				description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
-			>
-				{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
-			</Cell>
-		</Group>}
-
-		<Group title="Navigation Example">
+		<Group>
 			<Div>
-				<Button size="xl" level="2" onClick={go} data-to="persik">
-					Show me the Persik, please
+				<h1>
+					Здравствуй, {fetchedUser ? fetchedUser.first_name : ""}!
+				</h1>
+				<p>
+					Поймай как можно больше кошек, забежавших в комнаты с натяжными потолками, чтобы получить отличный приз!
+				</p>
+				<p>
+					Правила игры очень просты: видишь кошку - жмёшь кнопку "Поймать кошку". Если кошки в комнате нет, закрываешь дверь. И переходишь в другую комнату. Где так же надо поймать кошку. Чем больше кошек ты наловишь - тем круче будут призы
+				</p>
+				<Button size="xl" onClick={go} data-to="Rooms01">
+					Начать!
 				</Button>
 			</Div>
 		</Group>
